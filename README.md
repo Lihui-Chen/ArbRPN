@@ -1,19 +1,25 @@
 # ArbRPN
-This is the official implementation of 'ArbRPN: A Bidirectional Recurrent Pansharpening Network for Multispectral Images with Arbitrary Numbers of Bands', under review on IEEE Transaction on Geoscience 
-and Remote Sensing.
-
-Codes are coming soon.
+This is the official implementation of 'ArbRPN: A Bidirectional Recurrent Pansharpening Network for Multispectral Images with Arbitrary Numbers of Bands', under review on IEEE Transaction on Geoscience and Remote Sensing.
 
 # Requirements
 Python 3.6
+
 Pytorch >= 1.1
+
 torchvision
+
 pandas
+
 PIL
+
 opencv-python
+
 numpy
+
 random
+
 scipy
+
 importlib
 
 # Quick Test
