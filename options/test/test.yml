@@ -1,0 +1,38 @@
+mode: sr
+gpu_ids: [0]
+scale: 4
+degradation: MTF
+is_train: false
+use_chop: false
+self_ensemble: false
+save_image: true
+run_range: 1
+img_range: 2047
+
+
+# test data sets
+datasets:
+    test_set1:
+        name: QB-MIX-test-4samples
+        mode: LRHR
+        img_range: 2047
+        dataroot_LR: QB_MIX_test_samples/LRMS_npy
+        dataroot_HR: QB_MIX_test_samples/HRMS_npy
+        dataroot_PAN: QB_MIX_test_samples/PAN_npy
+        data_type: npy
+
+# hyper-parameters of network architecture
+networks:
+    which_model: ArbRPN
+    hid_dim: 64
+    input_dim: 64
+    num_features: 64
+    in_channels: 4
+    scale: 4
+    num_resblocks: 5
+    num_cycle: 5
+
+
+# the path of pre-trained model
+solver:
+    pretrained_path: models/ArbRPN_QB_FIX4.pth

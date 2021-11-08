@@ -1,0 +1,14 @@
+.idea/
+.vscode/
+__pycache__/
+
+*.sln
+*.suo
+*.pyproj
+*.pyc
+
+train_iterations.py
+
+experiments/
+exp_tblog/
+results/
