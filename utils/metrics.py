@@ -136,19 +136,19 @@ def Q2n(I_GT, I_F, Q_blocks_size=32, Q_shift=32):
     stepx = N1//Q_shift
     stepy = N2//Q_shift
     if stepy<=0: stypex, stepy = 1, 1
-    est1 = (stepx-1)*Q_shift+Q_blocks_size-N1
-    est2 = (stepy-1)*Q_shift+Q_blocks_size-N2
+    est1 = (stepx)*Q_shift+Q_blocks_size-N1
+    est2 = (stepy)*Q_shift+Q_blocks_size-N2
     
     if sum([est1!=0, est2!=0])>0:
         refref = np.zeros((N1+est1, N2+est2, N3))
         fusfus = np.zeros((N1+est1, N2+est2, N3))
         refref[:N1, :N2,:] = I_GT
-        refref[:,N2:,:] = I_GT[:,N2-1:-1:N2-est2-1,:]
-        refref[N1:,:,:] = I_GT[N1-1:-1:N1-est1-1,:,:]
+        refref[:N1, N2:,:] = I_GT[:,N2-1:N2-est2-1:-1,:]
+        refref[N1:,:,:] = refref[N1-1:N1-est1-1:-1,:,:]
 
         fusfus[:N1, :N2,:] = I_F
-        fusfus[:,N2:,:] = I_F[:,N2-1:-1:N2-est2-1,:]
-        fusfus[N1:,:,:] = I_F[N1-1:-1:N1-est1-1,:,:]
+        fusfus[:N1,N2:,:] = I_F[:,N2-1:N2-est2-1:-1,:]
+        fusfus[N1:,:,:] = fusfus[N1-1:N1-est1-1:-1,:,:]
         I_GT, I_F = refref, fusfus
     I_GT, I_F = I_GT.astype(np.uint16), I_F.astype(np.uint16)
     N1,N2,N3 = I_GT.shape
