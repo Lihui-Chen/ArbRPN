@@ -31,4 +31,21 @@ To do.
 To do.
 
 
+If you find these codes is helpful, please kindly cite
+
+```latex
+@ARTICLE{9627886,
+  author={Chen, Lihui and Lai, Zhibing and Vivone, Gemine and Jeon, Gwanggil and Chanussot, Jocelyn and Yang, Xiaomin},
+  journal={IEEE Transactions on Geoscience and Remote Sensing}, 
+  title={ArbRPN: A Bidirectional Recurrent Pansharpening Network for Multispectral Images with Arbitrary Numbers of Bands}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TGRS.2021.3131228}}
+```
+
+
+
+
 
