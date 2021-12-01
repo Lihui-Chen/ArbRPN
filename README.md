@@ -31,7 +31,7 @@ To do.
 To do.
 
 
-If you find these codes is helpful, please kindly cite
+If you find these codes are helpful, please kindly cite
 
 ```latex
 @ARTICLE{9627886,
