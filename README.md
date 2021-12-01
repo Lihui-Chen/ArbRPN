@@ -1,5 +1,5 @@
 # ArbRPN
-This is the official implementation of 'ArbRPN: A Bidirectional Recurrent Pansharpening Network for Multispectral Images with Arbitrary Numbers of Bands', Accepted by IEEE Transaction on Geoscience and Remote Sensing, DOI:10.1109/TGRS.2021.3131228
+This is the official implementation of 'ArbRPN: A Bidirectional Recurrent Pansharpening Network for Multispectral Images with Arbitrary Numbers of Bands', Accepted by IEEE Transaction on Geoscience and Remote Sensing, [[DOI:10.1109/TGRS.2021.3131228]](https://ieeexplore.ieee.org/document/9627886)
 # Requirements
 Python 3.6
 
