@@ -1,7 +1,7 @@
 # ArbRPN
 This is the official implementation of 'ArbRPN: A Bidirectional Recurrent Pansharpening Network for Multispectral Images with Arbitrary Numbers of Bands', Accepted by IEEE Transaction on Geoscience and Remote Sensing, [[DOI:10.1109/TGRS.2021.3131228]](https://ieeexplore.ieee.org/document/9627886)
 # Notice
-The metrics Q2n and ERGAS still have some difference between those in Matlab version when them meet some extreme cases, such as the reconstructed results (e.g, Noise Image) having considerable difference between the ground truth. In most case, they have the same results as those in Matlab version. It is suggested to validate the training process. The final results posted on paper are better to use Matlab codes.
+The metrics Q2n and ERGAS still have some difference between those in Matlab version when them meet some extreme cases, such as the reconstructed results (e.g, Noise Image) having considerable difference between the ground truth. In most case, they have the same results as those in Matlab version. It is suggested to validate the training process by them and the final results posted on paper are better to use Matlab codes.
 
 # Requirements
 Python 3.6
