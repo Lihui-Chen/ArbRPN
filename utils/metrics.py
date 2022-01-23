@@ -1,8 +1,10 @@
 """
 Author: LihuiChen
 E-mail: lihuichen@126.com
-Note: The metrics for reduced-rolution is the same with the matlat codes opened by [Vivone20]. 
+Note: The metrics of ERGAS and SAM for reduced-rolution is the same with the matlat codes opened by [Vivone20]. 
       Metrics for full-resolution have a little different results from the codes opened by [Vivone20].
+      
+Bug: Q2n has a bug that will output a value bigger than 1.0, which is beyond the value range of Q2n. 
 
 Refercence: PansharpeningToolver1.3 and Pansharpening Toolbox for Distribution
 
