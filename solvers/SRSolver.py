@@ -7,7 +7,7 @@ import importlib
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import torchvision.utils as thutil
+# import torchvision.utils as thutil
 
 from networks import create_model, init_weights
 from .base_solver import BaseSolver

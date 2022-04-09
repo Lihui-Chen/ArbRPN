@@ -5,8 +5,12 @@ from datetime import datetime
 import numpy as np
 from PIL import Image
 import cv2
-from .metrics import SAM, ERGAS, Q2n, CC, HQNR #, Q_AVE, sCC
+from .pan_metrics import q2n, HQNR, interp23
+from .metrics import SAM, ERGAS
 
+import transplant
+# matlab = transplant.Matlab(executable='/usr/local/MATLAB/R2018a/bin/matlab')
+# matlab.addpath('utils/Quality_Indices')
 
 ####################
 # miscellaneous
@@ -107,18 +111,37 @@ def quantize(img, rgb_range, img_range):
 
 
 ###Pan-sharpening#####
-def pan_calc_metrics_rr(PS, GT, scale, img_range):
-    GT = np.array(GT).astype(np.float)
-    PS = np.array(PS).astype(np.float)
-    RMSE = (GT - PS)/img_range
-    RMSE = np.sqrt((RMSE*RMSE).mean())
-    cc = CC(GT,PS)
-    sam = SAM(GT, PS)
-    ergas = ERGAS(PS, GT, scale=scale)
-    # Qave = Q_AVE(GT, PS)
-    # scc = sCC(GT, PS)
-    q2n = Q2n(GT,PS)
-    return {'SAM':sam, 'ERGAS':ergas, 'Q2n':q2n, 'CC': cc, 'RMSE':RMSE}
+def pan_calc_metrics_all(databatch, scale, img_range, FR=False):
+    PS = databatch['SR'].astype(np.double)
+    
+    sensor = databatch.pop('MTF') if databatch.get('MTF') is not None else databatch['SENSOR']
+
+    if not FR:
+        # GT = np.array(GT).astype(np.double)/img_range
+        # PS = np.array(PS).astype(np.double)/img_range
+        # RMSE = (GT - PS)/img_range
+        # RMSE = np.sqrt((RMSE*RMSE).mean())
+        # cc = CC(GT,PS)
+        GT = databatch['HR'].astype(np.double)/img_range
+        PS = PS/img_range
+        sam = SAM(GT, PS)
+        # ergas = round(ERGAS2(PS, GT, scale=scale), 4)
+        ergas = ERGAS(GT, PS, scale=scale)
+        
+        # psnr = mPSNR(GT, PS)
+        # Qave = Q_AVE(GT, PS)
+        # scc = sCC(GT, PS)
+        q2n_value, _ = q2n.q2n(GT,PS, 32, 32)
+        # return {'PSNR': psnr, 'SAM':sam, 'ERGAS':ergas, 'Q2n':q2n_value}
+        rlt = {'SAM':sam, 'ERGAS':ergas, 'Q2n':q2n_value}
+    else:
+        I_MS_LR = databatch['LR'].astype(np.double)
+        I_MS = interp23.interp23(I_MS_LR, scale).astype(np.double)
+        I_PAN = databatch['REF'].astype(np.double)
+        HQNR_index, D_lambda, D_S = HQNR.HQNR(PS,I_MS_LR,I_MS,I_PAN, 32, sensor,scale)
+        rlt = {'D_lambda':D_lambda, 'D_S':D_S, 'HQNR':HQNR_index}
+
+    return rlt
 
 
 ####################

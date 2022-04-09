@@ -156,7 +156,7 @@ def get_patch(img_in, img_tar, img_pan, patch_size, scale, lrpan=None, msx2=Fals
 
 
 def add_noise(x, noise='.'):
-    if noise is not '.':
+    if noise != '.':
         noise_type = noise[0]
         noise_value = int(noise[1:])
         if noise_type == 'G':

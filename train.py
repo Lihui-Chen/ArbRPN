@@ -113,7 +113,7 @@ def main():
 
             # calculate evaluation metrics
             visuals = solver.get_current_visual()
-            tmpMetricsDict = util.pan_calc_metrics_rr(visuals['SR'], visuals['HR'], opt['scale'], opt['img_range'])
+            tmpMetricsDict = util.pan_calc_metrics_all(visuals, scale, opt['img_range'], FR=False)
             if iter==0 and epoch ==start_epoch: metrics_list = {tKey:[] for tKey in tmpMetricsDict.keys()}
             for tKey, tValue in tmpMetricsDict.items():
                 metrics_list[tKey].append(tValue)

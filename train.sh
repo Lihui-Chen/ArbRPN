@@ -106,3 +106,4 @@ python train.py -net_arch DiCNN1  -loss l1 -opt options/train/train_demo.yml -in
 python train.py -net_arch PanNet  -loss l1 -opt options/train/train_demo.yml -in_channels 4 -save_name SOTA_NBU_WV4/PANNET
 python train.py -net_arch DILATED  -loss l1 -opt options/train/train_demo.yml -in_channels 4 -save_name SOTA_NBU_WV4/DILATED
 python train.py -net_arch ArbRPN -loss myloss -num_resblock 3 -num_cycle 5 -opt options/train/train_demo.yml -save_name SOTA_NBU_WV4/ArbRPN_woInit
+

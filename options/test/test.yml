@@ -16,10 +16,10 @@ datasets:
         name: QB-MIX-test-4samples
         mode: LRHR
         img_range: 2047
-        dataroot_LR: QB_MIX_test_samples/LRMS_npy
-        dataroot_HR: QB_MIX_test_samples/HRMS_npy
-        dataroot_PAN: QB_MIX_test_samples/PAN_npy
-        data_type: npy
+        dataroot_LR: ../PanSharp_dataset/NBU_WV2_500samples/test/MS_rr_npy
+        dataroot_HR: ../PanSharp_dataset/NBU_WV2_500samples/test/MS
+        dataroot_PAN: ../PanSharp_dataset/NBU_WV2_500samples/test/PAN_rr_npy
+        data_type: mat
 
 # hyper-parameters of network architecture
 networks:
@@ -35,4 +35,4 @@ networks:
 
 # the path of pre-trained model
 solver:
-    pretrained_path: models/ArbRPN_QB_FIX4.pth
+    pretrained_path: models/ArbRPN_WV2_FIX8.pth
