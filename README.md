@@ -1,7 +1,18 @@
 # ArbRPN
 This is the official implementation of 'ArbRPN: A Bidirectional Recurrent Pansharpening Network for Multispectral Images with Arbitrary Numbers of Bands', Accepted by IEEE Transaction on Geoscience and Remote Sensing, [[DOI:10.1109/TGRS.2021.3131228]](https://ieeexplore.ieee.org/document/9627886)
-# Notice
-The metrics Q2n and ERGAS still have some difference between those in Matlab version when them meet some extreme cases, such as the reconstructed results (e.g, Noise Image) having considerable difference between the ground truth. In most case, they have the same results as those in Matlab version. It is suggested to validate the training process by them and the final results posted on paper are better to use Matlab codes.
+# News
+The bug of the Q2n metric is fixed by the codes from the following paper.
+``` latex
+@ARTICLE{9447896,
+  author={Vivone, Gemine and Dalla Mura, Mauro and Garzelli, Andrea and Pacifici, Fabio},
+  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
+  title={A Benchmarking Protocol for Pansharpening: Dataset, Preprocessing, and Quality Assessment}, 
+  year={2021},
+  volume={14},
+  number={},
+  pages={6102-6118},
+  doi={10.1109/JSTARS.2021.3086877}}
+```
 
 # Requirements
 Python 3.6
@@ -41,10 +52,10 @@ If you find these codes are helpful, please kindly cite
   author={Chen, Lihui and Lai, Zhibing and Vivone, Gemine and Jeon, Gwanggil and Chanussot, Jocelyn and Yang, Xiaomin},
   journal={IEEE Transactions on Geoscience and Remote Sensing}, 
   title={ArbRPN: A Bidirectional Recurrent Pansharpening Network for Multispectral Images with Arbitrary Numbers of Bands}, 
-  year={2021},
-  volume={},
+  year={2022},
+  volume={60},
   number={},
-  pages={1-1},
+  pages={1-18},
   doi={10.1109/TGRS.2021.3131228}}
 ```
 
